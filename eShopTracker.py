@@ -1,4 +1,5 @@
 from nintendeals import noa, noe, noj
+from commands import printallregions
 
 
 def listAllRegions():
@@ -13,33 +14,30 @@ def listAllRegions():
         print(game.title, "/", game.nsuid)
 
 
-def printAllRegions():
-    for game in noa.list_switch_games():
-        with open('listAllRegions.txt', 'a', encoding="utf-8") as f:
-            Region = "Nintendo of America: "
-            Game_Details = game.title
-            f.write(Region + Game_Details + "\n")
-            f.close()
-    for game in noe.list_switch_games():
-        with open('listAllRegions.txt', 'a', encoding="utf-8") as f:
-            Region = "Nintendo of Europe: "
-            Game_Details = game.title
-            f.write(Region + Game_Details + "\n")
-            f.close()
-    for game in noj.list_switch_games():
-        with open('listAllRegions.txt', 'a', encoding="utf-8") as f:
-            Region = "Nintendo of Japan: "
-            Game_Details = game.title
-            f.write(Region + Game_Details + "\n")
-            f.close()
-
-
 def overwriteFile():
     with open('listAllRegions.txt', 'w', encoding="utf-8") as f:
         clean = ""
         f.write(clean)
-        f.close
+        f.close()
 
+
+def runCommands(command):
+    command = str.lower(command)
+    if command == "printallregions":
+        printallregions.printAllRegions()
+    else:
+        print("Command Not Found")
+
+
+def main():
+    end = 0
+    print("Welcome to eShop Tracker")
+    while end == 0:
+        cmd = input("eShopTracker > ")
+        runCommands(cmd)
+
+
+main()
 
 # for game in noa.list_switch_games():
 #    if "Zelda" in game.title:
@@ -48,7 +46,7 @@ def overwriteFile():
 #        print("Release Date: ", game.release_date)
 #        print("\n")
 
-printAllRegions()
+
 #overwriteFile()
 
 # for game in noa.search_switch_games(query="Zelda"):
