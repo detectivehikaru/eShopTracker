@@ -1,5 +1,5 @@
 from nintendeals import noa, noe, noj
-from commands import printallregions, listallregions
+from commands import printallregions, listallregions, welcome
 
 
 def overwriteFile():
@@ -15,6 +15,8 @@ def runCommands(command):
         printallregions.printAllRegions()
     elif command == "listallregions":
         listallregions.listAllRegions()
+    elif command == "welcome":
+        welcome.welcomeMessage()
     else:
         print("Command Not Found")
 
@@ -22,6 +24,7 @@ def runCommands(command):
 def main():
     end = 0
     print("Welcome to eShop Tracker")
+    welcome.welcomeMessage()
     while end == 0:
         cmd = input("eShopTracker > ")
         runCommands(cmd)

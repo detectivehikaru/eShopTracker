@@ -6,3 +6,6 @@ venv/
 .idea/modules.xml
 .idea/vcs.xml
 listAllRegions.txt
+commands/__pycache__/listallregions.cpython-39.pyc
+commands/__pycache__/printallregions.cpython-39.pyc
+commands/__pycache__/welcome.cpython-39.pyc
