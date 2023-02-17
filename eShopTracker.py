@@ -1,5 +1,5 @@
 from nintendeals import noa, noe, noj
-from commands import printallregions, listallregions, welcome
+from commands import printallregions, listallregions, welcome, region
 
 
 def overwriteFile():
@@ -17,6 +17,9 @@ def runCommands(command):
         listallregions.listAllRegions()
     elif command == "welcome":
         welcome.welcomeMessage()
+    elif command in ["region", "region -noa", "region -noe", "region -noj", "region -p -noa", "region -p -noe",
+                     "region -p -noj"]:
+        region.region(command)
     else:
         print("Command Not Found")
 
