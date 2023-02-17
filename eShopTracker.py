@@ -1,17 +1,5 @@
 from nintendeals import noa, noe, noj
-from commands import printallregions
-
-
-def listAllRegions():
-    print("List of games in NOA")
-    for game in noa.list_switch_games():
-        print(game.title, "/", game.nsuid)
-    print("List of games in NOE")
-    for game in noe.list_switch_games():
-        print(game.title, "/", game.nsuid)
-    print("List of games in NOJ")
-    for game in noj.list_switch_games():
-        print(game.title, "/", game.nsuid)
+from commands import printallregions, listallregions
 
 
 def overwriteFile():
@@ -25,6 +13,8 @@ def runCommands(command):
     command = str.lower(command)
     if command == "printallregions":
         printallregions.printAllRegions()
+    elif command == "listallregions":
+        listallregions.listAllRegions()
     else:
         print("Command Not Found")
 
