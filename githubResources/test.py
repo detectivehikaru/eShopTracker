@@ -1,4 +1,6 @@
 from nintendeals import noa, noe, noj
+import sys
+sys.path.append('../commands')
 import commands.printallregions
 import commands.listallregions
 import commands.welcome
