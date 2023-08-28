@@ -2,8 +2,8 @@ from nintendeals import noa, noe, noj
 from commands import printallregions, listallregions, welcome, region, listcommands, search
 
 
-def overwriteFile():
-    with open('listAllRegions.txt', 'w', encoding="utf-8") as f:
+def overwriteFile(file):
+    with open(file, 'w', encoding="utf-8") as f:
         clean = ""
         f.write(clean)
         f.close()
@@ -45,8 +45,6 @@ main()
 #        print("Release Date: ", game.release_date)
 #        print("\n")
 
-
-#overwriteFile()
 
 # for game in noa.search_switch_games(query="Zelda"):
 #    print(game.title)
