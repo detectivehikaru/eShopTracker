@@ -1,5 +1,5 @@
 from nintendeals import noa, noe, noj
-from commands import printallregions, listallregions, welcome, region, listcommands, search
+from commands import printallregions, listallregions, welcome, region, listcommands, search, notifications, version
 
 
 def overwriteFile(file):
@@ -22,6 +22,8 @@ def runCommands(command):
         region.region(command)
     elif command == "search":
         search.search()
+    elif command == "version":
+        version.displayVersion()
     elif command == "commands":
         listcommands.commands()
     else:
@@ -31,6 +33,7 @@ def runCommands(command):
 def main():
     end = 0
     welcome.welcomeMessage()
+    notifications.checkForUpdate()
     while end == 0:
         cmd = input("eShopTracker > ")
         runCommands(cmd)
