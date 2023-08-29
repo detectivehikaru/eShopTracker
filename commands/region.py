@@ -1,4 +1,5 @@
 from nintendeals import noa, noe, noj
+from colorama import Fore
 
 
 def region(command):
@@ -6,17 +7,17 @@ def region(command):
         print("Invalid use of command region")
     if command == "region -noa":
         for game in noa.list_switch_games():
-            Region = "Nintendo of America: "
+            Region = f"{Fore.WHITE}Nintendo of America: {Fore.GREEN}"
             gameDetails = ("{} {} / {}".format(Region, game.title, game.nsuid))
             print(gameDetails)
     if command == "region -noe":
         for game in noe.list_switch_games():
-            Region = "Nintendo of Europe: "
+            Region = f"{Fore.BLUE}Nintendo of Europe: {Fore.GREEN}"
             gameDetails = ("{} {} / {}".format(Region, game.title, game.nsuid))
             print(gameDetails)
     if command == "region -noj":
         for game in noj.list_switch_games():
-            Region = "Nintendo of Japan: "
+            Region = f"{Fore.RED}Nintendo of Japan: {Fore.GREEN}"
             gameDetails = ("{} {} / {}".format(Region, game.title, game.nsuid))
             print(gameDetails)
     if command == "region -p -noa":
