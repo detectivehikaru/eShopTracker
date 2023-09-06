@@ -19,11 +19,25 @@ def checkForUpdate():
             latest_version = line.decode('utf-8')
 
         if commands.version.version_info == latest_version:
-            print("You are up to date!")
+            if commands.version.version_control == "release":
+                print("You are up to date!")
+            elif commands.version.version_control == "beta":
+                print("This version is in " + commands.version.version_control)
+            elif commands.version.version_control == "alpha":
+                print("This version is in " + commands.version.version_control)
+            else:
+                print("This version is unidentified")
         else:
-            print(
-                "eShopTracker has an update! Go to https://github.com/detectivehikaru/eShopTracker/releases and download "
-                "the latest version")
+            if commands.version.version_control == "release":
+                print(
+                    "eShopTracker has an update! Go to https://github.com/detectivehikaru/eShopTracker/releases and download "
+                    "the latest version")
+            elif commands.version.version_control == "beta":
+                print("This version is in " + commands.version.version_control)
+            elif commands.version.version_control == "alpha":
+                print("This version is in " + commands.version.version_control)
+            else:
+                print("This version is unidentified")
 
     except:
         pass
