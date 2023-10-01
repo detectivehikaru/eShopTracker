@@ -3,7 +3,7 @@ import commands.version
 
 try:
 
-    github_version_url = ("https://raw.githubusercontent.com/detectivehikaru/eShopTracker/main/githubResources/version" \
+    github_version_url = ("https://raw.githubusercontent.com/detectiveren/eShopTracker/main/githubResources/version" \
                          ".txt ")
 
     github_data = urllib.request.urlopen(github_version_url)
@@ -30,7 +30,7 @@ def checkForUpdate():
         else:
             if commands.version.version_control == "release":
                 print(
-                    "eShopTracker has an update! Go to https://github.com/detectivehikaru/eShopTracker/releases and download "
+                    "eShopTracker has an update! Go to https://github.com/detectiveren/eShopTracker/releases and download "
                     "the latest version")
             elif commands.version.version_control == "beta":
                 print("This version is in " + commands.version.version_control)

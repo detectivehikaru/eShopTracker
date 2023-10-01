@@ -15,6 +15,44 @@ def regionSearchItem(Item, Region):
             print(game.title, "/", game.nsuid, "JP")
 
 
+def NSUID_Search(nsuid):
+    regionCheck = 0
+    try:
+        game = noa.game_info(nsuid)
+        print(game.title)
+        print(game.product_code, game.unique_id)
+        print(game.release_date)
+        print(game.players)
+        print(str(game.rating[0]), game.rating[1])
+        print(game.eshop.us_en)
+    except:
+        regionCheck = regionCheck + 1
+
+    try:
+        game = noe.game_info(nsuid)
+        print(game.title)
+        print(game.product_code, game.unique_id)
+        print(game.release_date)
+        print(game.players)
+        print(str(game.rating[0]), game.rating[1])
+        print(game.eshop.uk_en)
+    except:
+        regionCheck = regionCheck + 1
+
+    try:
+        game = noj.game_info(nsuid)
+        print(game.title)
+        print(game.product_code, game.unique_id)
+        print(game.release_date)
+        print(game.players)
+        print(str(game.rating[0]), game.rating[1])
+        print(game.eshop.jp_jp)
+    except:
+        regionCheck = regionCheck + 1
+
+    if regionCheck == 3:
+        print("The ID you entered was not found on any region")
+
 def searchedItem(Item):
     for game in noa.search_switch_games(query="{}".format(Item)):
         if Item in game.title:
@@ -37,5 +75,8 @@ def search():
     elif user_search == "region -JP":
         user_search = input("eShopTracker (Search JP) > ")
         regionSearchItem(user_search, "JP")
+    elif user_search == "nsuid":
+        user_search = input("eShopTracker (Enter NSUID) > ")
+        NSUID_Search(user_search)
     else:
         searchedItem(user_search)
