@@ -18,3 +18,11 @@ commands/__pycache__/search.cpython-311.pyc
 commands/__pycache__/welcome.cpython-311.pyc
 commands/__pycache__/notifications.cpython-311.pyc
 commands/__pycache__/version.cpython-311.pyc
+commands/__pycache__/listallregions.cpython-312.pyc
+commands/__pycache__/listcommands.cpython-312.pyc
+commands/__pycache__/printallregions.cpython-312.pyc
+commands/__pycache__/notifications.cpython-312.pyc
+commands/__pycache__/region.cpython-312.pyc
+commands/__pycache__/search.cpython-312.pyc
+commands/__pycache__/version.cpython-312.pyc
+commands/__pycache__/welcome.cpython-312.pyc

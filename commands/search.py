@@ -40,13 +40,14 @@ def NSUID_Search(nsuid):
         regionCheck = regionCheck + 1
 
     try:
-        game = noj.game_info(nsuid)
-        print(game.title)
-        print(game.product_code, game.unique_id)
-        print(game.release_date)
-        print(game.players)
-        print(str(game.rating[0]), game.rating[1])
-        print(game.eshop.jp_jp)
+        for game in noj.list_switch_games():
+            if game.nsuid == nsuid:
+                print(game.title)
+                print(game.product_code, game.unique_id)
+                print(game.release_date)
+                print(game.players)
+                print(str(game.rating[0]), game.rating[1])
+                print(game.eshop.jp_jp)
     except:
         regionCheck = regionCheck + 1
 
