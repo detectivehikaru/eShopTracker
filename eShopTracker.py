@@ -26,6 +26,8 @@ def runCommands(command):
         version.displayVersion()
     elif command == "commands":
         listcommands.commands()
+    elif command == "commands -p":
+        listcommands.detailedCommands()
     else:
         print("Command Not Found")
 

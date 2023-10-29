@@ -17,6 +17,7 @@ def regionSearchItem(Item, Region):
 
 def NSUID_Search(nsuid):
     regionCheck = 0
+    regionCheckComplete = 0
     try:
         game = noa.game_info(nsuid)
         print(game.title)
@@ -25,6 +26,7 @@ def NSUID_Search(nsuid):
         print(game.players)
         print(str(game.rating[0]), game.rating[1])
         print(game.eshop.us_en)
+        regionCheckComplete = 1
     except:
         regionCheck = regionCheck + 1
 
@@ -36,18 +38,20 @@ def NSUID_Search(nsuid):
         print(game.players)
         print(str(game.rating[0]), game.rating[1])
         print(game.eshop.uk_en)
+        regionCheckComplete = 1
     except:
         regionCheck = regionCheck + 1
 
     try:
-        for game in noj.list_switch_games():
-            if game.nsuid == nsuid:
-                print(game.title)
-                print(game.product_code, game.unique_id)
-                print(game.release_date)
-                print(game.players)
-                print(str(game.rating[0]), game.rating[1])
-                print(game.eshop.jp_jp)
+        if regionCheckComplete == 0:
+            for game in noj.list_switch_games():
+                if game.nsuid == nsuid:
+                    print(game.title)
+                    print(game.product_code, game.unique_id)
+                    print(game.release_date)
+                    print(game.players)
+                    print(str(game.rating[0]), game.rating[1])
+                    print(game.eshop.jp_jp)
     except:
         regionCheck = regionCheck + 1
 
