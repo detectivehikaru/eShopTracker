@@ -1,5 +1,5 @@
 from nintendeals import noa, noe, noj
-from commands import printallregions, listallregions, welcome, version, notifications
+from commands import printallregions, listallregions, welcome, version, notifications, listcommands
 
 
 def runTest():
@@ -8,6 +8,8 @@ def runTest():
     welcome.welcomeMessage()
     version.displayVersion()
     notifications.checkForUpdate()
+    listcommands.commands()
+    listcommands.detailedCommands()
 
 
 runTest()

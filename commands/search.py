@@ -52,6 +52,7 @@ def NSUID_Search(nsuid):
                     print(game.players)
                     print(str(game.rating[0]), game.rating[1])
                     print(game.eshop.jp_jp)
+                    break
     except:
         regionCheck = regionCheck + 1
 

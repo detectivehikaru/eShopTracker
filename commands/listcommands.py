@@ -7,6 +7,7 @@ def commands():
     print("version - displays program version\n")
     print("search - displays the list of software found from a search query\n")
     print("commands - displays all commands\n")
+    print("commands -p (displays commands in detail)")
 
 
 def detailedCommands():
