@@ -1,5 +1,12 @@
 from nintendeals import noa, noe, noj
-from commands import printallregions, listallregions, welcome, region, listcommands, search, notifications, version
+from commands import (printallregions, listallregions, welcome, region, listcommands, search, notifications, version)
+
+#internetCheck = online.internetStatus()
+
+#if internetCheck:
+#    internet = "You are online"
+#else:
+#    internet = "You are offline, eShopTracker is working with limited functionality"
 
 
 def overwriteFile(file):
@@ -28,6 +35,8 @@ def runCommands(command):
         listcommands.commands()
     elif command == "commands -p":
         listcommands.detailedCommands()
+    elif command == "version branch":
+        version.displayVersionBranch()
     else:
         print("Command Not Found")
 
@@ -36,6 +45,7 @@ def main():
     end = 0
     welcome.welcomeMessage()
     notifications.checkForUpdate()
+    #print(internet)
     while end == 0:
         cmd = input("eShopTracker > ")
         runCommands(cmd)

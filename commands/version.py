@@ -6,3 +6,7 @@ version_control = "beta"
 
 def displayVersion():
     print(version_message)
+
+
+def displayVersionBranch():
+    print(version_control)

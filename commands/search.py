@@ -1,4 +1,5 @@
 from nintendeals import noa, noe, noj
+import commands.save
 
 
 def regionSearchItem(Item, Region):
@@ -16,6 +17,7 @@ def regionSearchItem(Item, Region):
 
 
 def NSUID_Search(nsuid):
+    saveInfo = []
     regionCheck = 0
     regionCheckComplete = 0
     try:
@@ -26,6 +28,19 @@ def NSUID_Search(nsuid):
         print(game.players)
         print(str(game.rating[0]), game.rating[1])
         print(game.eshop.us_en)
+        user_input = input("Do you want to save this information (Y/N): ")
+
+        if user_input == "Y":
+            saveInfo.append(str(game.title))
+            gameProductInfo = str(game.product_code) + str(game.unique_id)
+            saveInfo.append(gameProductInfo)
+            saveInfo.append(str(game.release_date))
+            saveInfo.append(str(game.players))
+            gameRating = str(game.rating[0]), str(game.rating[1])
+            saveInfo.append(str(gameRating))
+            saveInfo.append(str(game.eshop.us_en))
+            commands.save.saveGameDetailsOntoFile(saveInfo)
+
         regionCheckComplete = 1
     except:
         regionCheck = regionCheck + 1
