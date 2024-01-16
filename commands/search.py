@@ -53,6 +53,19 @@ def NSUID_Search(nsuid):
         print(game.players)
         print(str(game.rating[0]), game.rating[1])
         print(game.eshop.uk_en)
+        user_input = input("Do you want to save this information (Y/N): ")
+
+        if user_input == "Y":
+            saveInfo.append(str(game.title))
+            gameProductInfo = str(game.product_code) + str(game.unique_id)
+            saveInfo.append(gameProductInfo)
+            saveInfo.append(str(game.release_date))
+            saveInfo.append(str(game.players))
+            gameRating = str(game.rating[0]), str(game.rating[1])
+            saveInfo.append(str(gameRating))
+            saveInfo.append(str(game.eshop.uk_en))
+            commands.save.saveGameDetailsOntoFile(saveInfo)
+
         regionCheckComplete = 1
     except:
         regionCheck = regionCheck + 1
@@ -67,12 +80,26 @@ def NSUID_Search(nsuid):
                     print(game.players)
                     print(str(game.rating[0]), game.rating[1])
                     print(game.eshop.jp_jp)
+                    user_input = input("Do you want to save this information (Y/N): ")
+
+                    if user_input == "Y":
+                        saveInfo.append(str(game.title))
+                        gameProductInfo = str(game.product_code) + str(game.unique_id)
+                        saveInfo.append(gameProductInfo)
+                        saveInfo.append(str(game.release_date))
+                        saveInfo.append(str(game.players))
+                        gameRating = str(game.rating[0]), str(game.rating[1])
+                        saveInfo.append(str(gameRating))
+                        saveInfo.append(str(game.eshop.jp_jp))
+                        commands.save.saveGameDetailsOntoFile(saveInfo)
                     break
+
     except:
         regionCheck = regionCheck + 1
 
     if regionCheck == 3:
         print("The ID you entered was not found on any region")
+
 
 def searchedItem(Item):
     for game in noa.search_switch_games(query="{}".format(Item)):

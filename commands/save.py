@@ -3,7 +3,7 @@ from datetime import date
 
 def saveGameDetailsOntoFile(gameDetails):
     saveTime = date.today()
-    saveFileName = str(saveTime) + ".txt"
+    saveFileName = str(saveTime) + "-" + str(gameDetails[0]) + ".txt"
     print("Saved as: " + saveFileName)
     with open(saveFileName, 'a', encoding="utf-8") as f:
         gameTitle = gameDetails[0]
