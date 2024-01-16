@@ -1,4 +1,5 @@
 from nintendeals import noa, noe, noj
+from colorama import Fore
 import commands.save
 
 
@@ -14,6 +15,8 @@ def regionSearchItem(Item, Region):
     if Region == "JP":
         for game in noj.search_switch_games(query="{}".format(Item)):
             print(game.title, "/", game.nsuid, "JP")
+
+    print(Fore.BLUE + "That is all the results for " + Fore.RED + Item + Fore.BLUE + " in the " + Region + " region" + Fore.GREEN)
 
 
 def NSUID_Search(nsuid):
@@ -110,6 +113,8 @@ def searchedItem(Item):
             print(game.title, "/", game.nsuid, "EU")
     for game in noj.search_switch_games(query="{}".format(Item)):
         print(game.title, "/", game.nsuid, "JP")
+
+    print(Fore.BLUE + "That is all the results for " + Fore.RED + Item + Fore.GREEN)
 
 
 def search():

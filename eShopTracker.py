@@ -37,6 +37,8 @@ def runCommands(command):
         listcommands.detailedCommands()
     elif command == "version branch":
         version.displayVersionBranch()
+    elif command == "version details":
+        version.displayVersionDetails()
     else:
         print("Command Not Found")
 
