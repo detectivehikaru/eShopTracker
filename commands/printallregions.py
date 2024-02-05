@@ -1,8 +1,16 @@
-from nintendeals import noa, noe, noj
+import commands.region
 
 
 def overwriteFile():
-    with open('listAllRegions.txt', 'w', encoding="utf-8") as f:
+    with open('NintendoOfAmerica.txt', 'w', encoding="utf-8") as f:
+        clean = ""
+        f.write(clean)
+        f.close()
+    with open('NintendoOfEurope.txt', 'w', encoding="utf-8") as f:
+        clean = ""
+        f.write(clean)
+        f.close()
+    with open('NintendoOfJapan.txt', 'w', encoding="utf-8") as f:
         clean = ""
         f.write(clean)
         f.close()
@@ -11,21 +19,6 @@ def overwriteFile():
 def printAllRegions():
     overwriteFile()
     print("Printing all regions")
-    for game in noa.list_switch_games():
-        with open('listAllRegions.txt', 'a', encoding="utf-8") as f:
-            Region = "Nintendo of America: "
-            gameDetails = game.title
-            f.write(Region + gameDetails + "\n")
-            f.close()
-    for game in noe.list_switch_games():
-        with open('listAllRegions.txt', 'a', encoding="utf-8") as f:
-            Region = "Nintendo of Europe: "
-            gameDetails = game.title
-            f.write(Region + gameDetails + "\n")
-            f.close()
-    for game in noj.list_switch_games():
-        with open('listAllRegions.txt', 'a', encoding="utf-8") as f:
-            Region = "Nintendo of Japan: "
-            gameDetails = game.title
-            f.write(Region + gameDetails + "\n")
-            f.close()
+    commands.region.regionNA(1)
+    commands.region.regionEU(1)
+    commands.region.regionJP(1)

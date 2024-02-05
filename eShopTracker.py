@@ -1,12 +1,4 @@
-from nintendeals import noa, noe, noj
 from commands import (printallregions, listallregions, welcome, region, listcommands, search, notifications, version)
-
-#internetCheck = online.internetStatus()
-
-#if internetCheck:
-#    internet = "You are online"
-#else:
-#    internet = "You are offline, eShopTracker is working with limited functionality"
 
 
 def overwriteFile(file):
@@ -47,7 +39,6 @@ def main():
     end = 0
     welcome.welcomeMessage()
     notifications.checkForUpdate()
-    #print(internet)
     while end == 0:
         cmd = input("eShopTracker > ")
         runCommands(cmd)
@@ -55,13 +46,3 @@ def main():
 
 main()
 
-# for game in noa.list_switch_games():
-#    if "Zelda" in game.title:
-#        print(game.title)
-#        print("NSUID: ", game.nsuid)
-#        print("Release Date: ", game.release_date)
-#        print("\n")
-
-
-# for game in noa.search_switch_games(query="Zelda"):
-#    print(game.title)

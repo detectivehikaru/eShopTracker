@@ -1,18 +1,10 @@
-from nintendeals import noa, noe, noj
+import commands.region
+
 
 def listAllRegions():
-    print("List of games in NOA")
-    for game in noa.list_switch_games():
-        Region = "Nintendo of America: "
-        gameDetails = Region + game.title
-        print(gameDetails, "/", game.nsuid)
-    print("List of games in NOE")
-    for game in noe.list_switch_games():
-        Region = "Nintendo of Europe: "
-        gameDetails = Region + game.title
-        print(gameDetails, "/", game.nsuid)
-    print("List of games in NOJ")
-    for game in noj.list_switch_games():
-        Region = "Nintendo of Japan: "
-        gameDetails = Region + game.title
-        print(gameDetails, "/", game.nsuid)
+    print("List of games in NA")
+    commands.region.regionNA(0)
+    print("List of games in EU")
+    commands.region.regionEU(0)
+    print("List of games in JP")
+    commands.region.regionJP(0)
