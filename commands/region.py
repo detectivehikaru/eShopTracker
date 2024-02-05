@@ -1,5 +1,6 @@
 from nintendeals import noa, noe, noj
 from colorama import Fore
+import commands.listcommands
 
 
 def regionNA(number):
@@ -50,6 +51,8 @@ def regionJP(number):
 def region(command):
     if command == "region":
         print("Invalid use of command region")
+        print("Here's a list of region commands")
+        commands.listcommands.regionCMDs()
     if command == "region -noa":
         regionNA(0)
     if command == "region -noe":

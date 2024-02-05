@@ -19,7 +19,7 @@ def regionSearchItem(Item, Region):
     print(Fore.BLUE + "That is all the results for " + Fore.RED + Item + Fore.BLUE + " in the " + Region + " region" + Fore.GREEN)
 
 
-def NSUID_Search(nsuid):
+def nsuidSearch(nsuid):
     saveInfo = []
     regionCheck = 0
     regionCheckComplete = 0
@@ -130,6 +130,6 @@ def search():
         regionSearchItem(user_search, "JP")
     elif user_search == "nsuid":
         user_search = input("eShopTracker (Enter NSUID) > ")
-        NSUID_Search(user_search)
+        nsuidSearch(user_search)
     else:
         searchedItem(user_search)

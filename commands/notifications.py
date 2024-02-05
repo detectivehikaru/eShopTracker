@@ -29,7 +29,7 @@ def checkForUpdate():
                 print(
                     "eShopTracker has an update! Go to https://github.com/detectiveren/eShopTracker/releases and "
                     "download"
-                    "the latest version")
+                    " the latest version")
             else:
                 print("This version is in " + commands.version.version_control)
 

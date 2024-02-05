@@ -2,13 +2,13 @@
 
 You can find out information and metadata on software released on the Nintendo eShop using eShopTracker
 
-### Version 1.5.0 has been released
+### Version 1.6.0 has been released
 
 You can see it in the releases section on the right
 
 ### Commands
 
-All commands on this list are available in 1.5.0 and above. 
+All commands on this list are available in 1.6.0 and above. 
 
 - ```listallregions``` - This will list all software information from all regions (1.0.0 and above)
 - ```printallregions``` - This will print all software information from all regions to a textfile (1.0.0 and above)

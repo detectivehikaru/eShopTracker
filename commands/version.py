@@ -1,7 +1,7 @@
-version = "1.5.5"
+version = "1.6.0"
 version_message = "Version " + version
 version_info = "version=" + version
-version_control = "alpha"
+version_control = "release"
 
 
 def displayVersion():
