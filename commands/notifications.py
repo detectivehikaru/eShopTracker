@@ -34,4 +34,4 @@ def checkForUpdate():
                 print("This version is in " + commands.version.version_control)
 
     except:
-        pass
+        print("This version branch is " + commands.version.version_control)
