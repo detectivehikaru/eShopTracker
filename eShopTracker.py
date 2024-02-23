@@ -1,4 +1,5 @@
-from commands import (printallregions, listallregions, welcome, region, listcommands, search, notifications, version, online)
+from commands import (printallregions, listallregions, welcome, region, listcommands, search, notifications, version,
+                      online, settings)
 
 if online.internetStatus():
     connection = True
@@ -41,7 +42,7 @@ def runCommands(command, internetConnection):
     elif command == "version":
         version.displayVersion()
     elif command == "commands":
-        listcommands.commands()
+        listcommands.listBasicCommands()
     elif command == "commands -p":
         listcommands.detailedCommands()
     elif command == "version branch":
@@ -51,6 +52,8 @@ def runCommands(command, internetConnection):
     elif command == "overwrite":
         command = input("Enter the text file you would like to overwrite (include file extension): ")
         overwriteFile(command)
+    elif command == "settings":
+        settings.printSettings()
     else:
         print("Command Not Found")
 

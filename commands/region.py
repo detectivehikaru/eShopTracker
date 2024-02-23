@@ -1,6 +1,6 @@
 from nintendeals import noa, noe, noj
 from colorama import Fore
-import commands.listcommands
+import commands.listcommands, commands.settings
 
 
 def regionNA(number):
@@ -49,19 +49,22 @@ def regionJP(number):
 
 
 def region(command):
-    if command == "region":
-        print("Invalid use of command region")
-        print("Here's a list of region commands")
-        commands.listcommands.regionCMDs()
-    if command == "region -noa":
-        regionNA(0)
-    if command == "region -noe":
-        regionEU(0)
-    if command == "region -noj":
-        regionJP(0)
-    if command == "region -p -noa":
-        regionNA(1)
-    if command == "region -p -noe":
-        regionEU(1)
-    if command == "region -p -noj":
-        regionJP(1)
+    if commands.settings.region:
+        if command == "region":
+            print("Invalid use of command region")
+            print("Here's a list of region commands")
+            commands.listcommands.regionCMDs()
+        if command == "region -noa":
+            regionNA(0)
+        if command == "region -noe":
+            regionEU(0)
+        if command == "region -noj":
+            regionJP(0)
+        if command == "region -p -noa":
+            regionNA(1)
+        if command == "region -p -noe":
+            regionEU(1)
+        if command == "region -p -noj":
+            regionJP(1)
+    else:
+        print("This command is not enabled in settings")

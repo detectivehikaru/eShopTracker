@@ -1,12 +1,15 @@
-import requests
+import requests, commands.settings
 from colorama import Fore
 
 
 def internetStatus():
-    try:
-        response = requests.get("https://google.com/", timeout=5)
-        return True
-    except requests.ConnectionError:
+    if commands.settings.online:
+        try:
+            response = requests.get("https://google.com/", timeout=5)
+            return True
+        except requests.ConnectionError:
+            return False
+    else:
         return False
 
 

@@ -1,6 +1,6 @@
 from nintendeals import noa, noe, noj
 from colorama import Fore
-import commands.save
+import commands.save, commands.settings
 
 
 def regionSearchItem(Item, Region):
@@ -118,18 +118,21 @@ def searchedItem(Item):
 
 
 def search():
-    user_search = input("eShopTracker (Search) > ")
-    if user_search == "region -EU":
-        user_search = input("eShopTracker (Search EU) > ")
-        regionSearchItem(user_search, "EU")
-    elif user_search == "region -NA":
-        user_search = input("eShopTracker (Search NA) > ")
-        regionSearchItem(user_search, "NA")
-    elif user_search == "region -JP":
-        user_search = input("eShopTracker (Search JP) > ")
-        regionSearchItem(user_search, "JP")
-    elif user_search == "nsuid":
-        user_search = input("eShopTracker (Enter NSUID) > ")
-        nsuidSearch(user_search)
+    if commands.settings.search:
+        user_search = input("eShopTracker (Search) > ")
+        if user_search == "region -EU":
+            user_search = input("eShopTracker (Search EU) > ")
+            regionSearchItem(user_search, "EU")
+        elif user_search == "region -NA":
+            user_search = input("eShopTracker (Search NA) > ")
+            regionSearchItem(user_search, "NA")
+        elif user_search == "region -JP":
+            user_search = input("eShopTracker (Search JP) > ")
+            regionSearchItem(user_search, "JP")
+        elif user_search == "nsuid":
+            user_search = input("eShopTracker (Enter NSUID) > ")
+            nsuidSearch(user_search)
+        else:
+            searchedItem(user_search)
     else:
-        searchedItem(user_search)
+        print("This command is not enabled in settings")
