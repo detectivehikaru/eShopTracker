@@ -1,5 +1,6 @@
 from nintendeals import noa, noe, noj
-from commands import printallregions, listallregions, welcome, version, notifications, listcommands
+from commands import (printallregions, listallregions, welcome, version, notifications, listcommands, settings,
+                      search, online)
 
 
 def runTest():
@@ -8,8 +9,14 @@ def runTest():
     welcome.welcomeMessage()
     version.displayVersion()
     notifications.checkForUpdate()
-    listcommands.commands()
+    listcommands.listBasicCommands()
     listcommands.detailedCommands()
+    settings.printSettings()
+    search.searchedItem("Zelda")
+    search.regionSearchItem("Zelda", "NA")
+    online.internetStatus()
+    online.displayInternetStatus()
+
 
 
 runTest()
