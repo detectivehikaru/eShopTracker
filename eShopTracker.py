@@ -54,6 +54,8 @@ def runCommands(command, internetConnection):
         overwriteFile(command)
     elif command == "settings":
         settings.printSettings()
+    elif command == "nsuid":
+        search.nsuidItem()
     else:
         print("Command Not Found")
 

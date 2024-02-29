@@ -1,3 +1,4 @@
+# Activate Commands
 listallregions = True
 listcommands = True
 notifications = True
@@ -9,6 +10,10 @@ search = True
 version = True
 welcome = True
 debug = False
+
+# Detailed Parameters for Commands
+notifications_url = "https://raw.githubusercontent.com/detectiveren/eShopTracker/main/githubResources/version.txt"
+saveAuto = 0
 
 if debug:
     listallregions = True
@@ -24,77 +29,77 @@ if debug:
 
 
 def printListAllRegions():
-    if listallregions == True:
+    if listallregions:
         print("listallregions: Enabled")
     else:
         print("listallregions: Disabled")
 
 
 def printlistCommands():
-    if listcommands == True:
+    if listcommands:
         print("listcommands: Enabled")
     else:
         print("listcommands: Disabled")
 
 
 def printNotifications():
-    if notifications == True:
+    if notifications:
         print("notifications: Enabled")
     else:
         print("notifications: Disabled")
 
 
 def printOnline():
-    if online == True:
+    if online:
         print("online: Enabled")
     else:
         print("online: Disabled")
 
 
 def printAllRegionsCommand():
-    if printallregions == True:
+    if printallregions:
         print("printallregions: Enabled")
     else:
         print("printallregions: Disabled")
 
 
 def printRegion():
-    if region == True:
+    if region:
         print("region: Enabled")
     else:
         print("region: Disabled")
 
 
 def printSave():
-    if save == True:
+    if save:
         print("save: Enabled")
     else:
         print("save: Disabled")
 
 
 def printSearch():
-    if search == True:
+    if search:
         print("search: Enabled")
     else:
         print("search: Disabled")
 
 
 def printVersion():
-    if version == True:
+    if version:
         print("version: Enabled")
     else:
         print("version: Disabled")
 
 
 def printWelcome():
-    if welcome == True:
+    if welcome:
         print("welcome: Enabled")
     else:
         print("welcome: Disabled")
 
 
 def printDebug():
-    if debug == True:
+    if debug:
         print("debug: Enabled")
     else:
         print("debug: Disabled")
@@ -112,4 +117,3 @@ def printSettings():
     printVersion()
     printWelcome()
     printDebug()
-

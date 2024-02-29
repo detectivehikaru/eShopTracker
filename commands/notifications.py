@@ -3,8 +3,7 @@ import commands.version, commands.settings
 
 try:
 
-    github_version_url = ("https://raw.githubusercontent.com/detectiveren/eShopTracker/main/githubResources/version"
-                          ".txt ")  # This is the URL where the current version is stored
+    github_version_url = commands.settings.notifications_url  # This is the URL where the current version is stored
 
     github_data = urllib.request.urlopen(github_version_url)
 

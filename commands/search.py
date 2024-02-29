@@ -16,10 +16,11 @@ def regionSearchItem(Item, Region):
         for game in noj.search_switch_games(query="{}".format(Item)):
             print(game.title, "/", game.nsuid, "JP")
 
-    print(Fore.BLUE + "That is all the results for " + Fore.RED + Item + Fore.BLUE + " in the " + Region + " region" + Fore.GREEN)
+    print(
+        Fore.BLUE + "That is all the results for " + Fore.RED + Item + Fore.BLUE + " in the " + Region + " region" + Fore.GREEN)
 
 
-def nsuidSearch(nsuid):
+def nsuidSearch(nsuid, saveOptions):
     saveInfo = []
     regionCheck = 0
     regionCheckComplete = 0
@@ -31,9 +32,22 @@ def nsuidSearch(nsuid):
         print(game.players)
         print(str(game.rating[0]), game.rating[1])
         print(game.eshop.us_en)
-        user_input = input("Do you want to save this information (Y/N): ")
 
-        if user_input == "Y":
+        if saveOptions == 0:
+            user_input = input("Do you want to save this information (Y/N): ")
+
+            if user_input == "Y":
+                saveInfo.append(str(game.title))
+                gameProductInfo = str(game.product_code) + str(game.unique_id)
+                saveInfo.append(gameProductInfo)
+                saveInfo.append(str(game.release_date))
+                saveInfo.append(str(game.players))
+                gameRating = str(game.rating[0]), str(game.rating[1])
+                saveInfo.append(str(gameRating))
+                saveInfo.append(str(game.eshop.us_en))
+                commands.save.saveGameDetailsOntoFile(saveInfo)
+        if saveOptions == 1:
+            print("Auto saving")
             saveInfo.append(str(game.title))
             gameProductInfo = str(game.product_code) + str(game.unique_id)
             saveInfo.append(gameProductInfo)
@@ -43,6 +57,8 @@ def nsuidSearch(nsuid):
             saveInfo.append(str(gameRating))
             saveInfo.append(str(game.eshop.us_en))
             commands.save.saveGameDetailsOntoFile(saveInfo)
+        if saveOptions == 2:
+            pass
 
         regionCheckComplete = 1
     except:
@@ -56,9 +72,22 @@ def nsuidSearch(nsuid):
         print(game.players)
         print(str(game.rating[0]), game.rating[1])
         print(game.eshop.uk_en)
-        user_input = input("Do you want to save this information (Y/N): ")
 
-        if user_input == "Y":
+        if saveOptions == 0:
+            user_input = input("Do you want to save this information (Y/N): ")
+
+            if user_input == "Y":
+                saveInfo.append(str(game.title))
+                gameProductInfo = str(game.product_code) + str(game.unique_id)
+                saveInfo.append(gameProductInfo)
+                saveInfo.append(str(game.release_date))
+                saveInfo.append(str(game.players))
+                gameRating = str(game.rating[0]), str(game.rating[1])
+                saveInfo.append(str(gameRating))
+                saveInfo.append(str(game.eshop.uk_en))
+                commands.save.saveGameDetailsOntoFile(saveInfo)
+        if saveOptions == 1:
+            print("Auto saving")
             saveInfo.append(str(game.title))
             gameProductInfo = str(game.product_code) + str(game.unique_id)
             saveInfo.append(gameProductInfo)
@@ -68,6 +97,8 @@ def nsuidSearch(nsuid):
             saveInfo.append(str(gameRating))
             saveInfo.append(str(game.eshop.uk_en))
             commands.save.saveGameDetailsOntoFile(saveInfo)
+        if saveOptions == 2:
+            pass
 
         regionCheckComplete = 1
     except:
@@ -83,9 +114,22 @@ def nsuidSearch(nsuid):
                     print(game.players)
                     print(str(game.rating[0]), game.rating[1])
                     print(game.eshop.jp_jp)
-                    user_input = input("Do you want to save this information (Y/N): ")
 
-                    if user_input == "Y":
+                    if saveOptions == 0:
+                        user_input = input("Do you want to save this information (Y/N): ")
+
+                        if user_input == "Y":
+                            saveInfo.append(str(game.title))
+                            gameProductInfo = str(game.product_code) + str(game.unique_id)
+                            saveInfo.append(gameProductInfo)
+                            saveInfo.append(str(game.release_date))
+                            saveInfo.append(str(game.players))
+                            gameRating = str(game.rating[0]), str(game.rating[1])
+                            saveInfo.append(str(gameRating))
+                            saveInfo.append(str(game.eshop.jp_jp))
+                            commands.save.saveGameDetailsOntoFile(saveInfo)
+                    if saveOptions == 1:
+                        print("Auto saving")
                         saveInfo.append(str(game.title))
                         gameProductInfo = str(game.product_code) + str(game.unique_id)
                         saveInfo.append(gameProductInfo)
@@ -95,6 +139,8 @@ def nsuidSearch(nsuid):
                         saveInfo.append(str(gameRating))
                         saveInfo.append(str(game.eshop.jp_jp))
                         commands.save.saveGameDetailsOntoFile(saveInfo)
+                    if saveOptions == 2:
+                        pass
                     break
 
     except:
@@ -102,6 +148,14 @@ def nsuidSearch(nsuid):
 
     if regionCheck == 3:
         print("The ID you entered was not found on any region")
+
+
+def nsuidItem():
+    if commands.settings.search:
+        user_search = input("eShopTracker (Enter NSUID) > ")
+        nsuidSearch(user_search, commands.settings.saveAuto)
+    else:
+        print("This command is not enabled in settings")
 
 
 def searchedItem(Item):
@@ -130,8 +184,7 @@ def search():
             user_search = input("eShopTracker (Search JP) > ")
             regionSearchItem(user_search, "JP")
         elif user_search == "nsuid":
-            user_search = input("eShopTracker (Enter NSUID) > ")
-            nsuidSearch(user_search)
+            nsuidItem()
         else:
             searchedItem(user_search)
     else:
