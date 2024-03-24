@@ -29,3 +29,16 @@ commands/__pycache__/welcome.cpython-312.pyc
 commands/__pycache__/online.cpython-312.pyc
 commands/__pycache__/save.cpython-312.pyc
 commands/__pycache__/settings.cpython-312.pyc
+commands/__pycache__/info.cpython-310.pyc
+commands/__pycache__/info.cpython-312.pyc
+commands/__pycache__/listallregions.cpython-310.pyc
+commands/__pycache__/listcommands.cpython-310.pyc
+commands/__pycache__/notifications.cpython-310.pyc
+commands/__pycache__/online.cpython-310.pyc
+commands/__pycache__/printallregions.cpython-310.pyc
+commands/__pycache__/region.cpython-310.pyc
+commands/__pycache__/save.cpython-310.pyc
+commands/__pycache__/search.cpython-310.pyc
+commands/__pycache__/settings.cpython-310.pyc
+commands/__pycache__/version.cpython-310.pyc
+commands/__pycache__/welcome.cpython-310.pyc

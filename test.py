@@ -1,4 +1,3 @@
-from nintendeals import noa, noe, noj
 from commands import (printallregions, listallregions, welcome, version, notifications, listcommands, settings,
                       search, online)
 
@@ -16,7 +15,6 @@ def runTest():
     search.regionSearchItem("Zelda", "NA")
     online.internetStatus()
     online.displayInternetStatus()
-
 
 
 runTest()
