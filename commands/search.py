@@ -1,6 +1,6 @@
 from nintendeals import noa, noe, noj
 from colorama import Fore
-import commands.save, commands.settings
+import commands.save, commands.settings, commands.info
 
 
 def regionSearchItem(Item, Region):
@@ -20,140 +20,10 @@ def regionSearchItem(Item, Region):
         Fore.BLUE + "That is all the results for " + Fore.RED + Item + Fore.BLUE + " in the " + Region + " region" + Fore.GREEN)
 
 
-def nsuidSearch(nsuid, saveOptions):
-    saveInfo = []
-    regionCheck = 0
-    regionCheckComplete = 0
-    try:
-        game = noa.game_info(nsuid)
-        print(game.title)
-        print(game.product_code, game.unique_id)
-        print(game.release_date)
-        print(game.players)
-        print(str(game.rating[0]), game.rating[1])
-        print(game.eshop.us_en)
-
-        if saveOptions == 0:
-            user_input = input("Do you want to save this information (Y/N): ")
-
-            if user_input == "Y":
-                saveInfo.append(str(game.title))
-                gameProductInfo = str(game.product_code) + str(game.unique_id)
-                saveInfo.append(gameProductInfo)
-                saveInfo.append(str(game.release_date))
-                saveInfo.append(str(game.players))
-                gameRating = str(game.rating[0]), str(game.rating[1])
-                saveInfo.append(str(gameRating))
-                saveInfo.append(str(game.eshop.us_en))
-                commands.save.saveGameDetailsOntoFile(saveInfo)
-        if saveOptions == 1:
-            print("Auto saving")
-            saveInfo.append(str(game.title))
-            gameProductInfo = str(game.product_code) + str(game.unique_id)
-            saveInfo.append(gameProductInfo)
-            saveInfo.append(str(game.release_date))
-            saveInfo.append(str(game.players))
-            gameRating = str(game.rating[0]), str(game.rating[1])
-            saveInfo.append(str(gameRating))
-            saveInfo.append(str(game.eshop.us_en))
-            commands.save.saveGameDetailsOntoFile(saveInfo)
-        if saveOptions == 2:
-            pass
-
-        regionCheckComplete = 1
-    except:
-        regionCheck = regionCheck + 1
-
-    try:
-        game = noe.game_info(nsuid)
-        print(game.title)
-        print(game.product_code, game.unique_id)
-        print(game.release_date)
-        print(game.players)
-        print(str(game.rating[0]), game.rating[1])
-        print(game.eshop.uk_en)
-
-        if saveOptions == 0:
-            user_input = input("Do you want to save this information (Y/N): ")
-
-            if user_input == "Y":
-                saveInfo.append(str(game.title))
-                gameProductInfo = str(game.product_code) + str(game.unique_id)
-                saveInfo.append(gameProductInfo)
-                saveInfo.append(str(game.release_date))
-                saveInfo.append(str(game.players))
-                gameRating = str(game.rating[0]), str(game.rating[1])
-                saveInfo.append(str(gameRating))
-                saveInfo.append(str(game.eshop.uk_en))
-                commands.save.saveGameDetailsOntoFile(saveInfo)
-        if saveOptions == 1:
-            print("Auto saving")
-            saveInfo.append(str(game.title))
-            gameProductInfo = str(game.product_code) + str(game.unique_id)
-            saveInfo.append(gameProductInfo)
-            saveInfo.append(str(game.release_date))
-            saveInfo.append(str(game.players))
-            gameRating = str(game.rating[0]), str(game.rating[1])
-            saveInfo.append(str(gameRating))
-            saveInfo.append(str(game.eshop.uk_en))
-            commands.save.saveGameDetailsOntoFile(saveInfo)
-        if saveOptions == 2:
-            pass
-
-        regionCheckComplete = 1
-    except:
-        regionCheck = regionCheck + 1
-
-    try:
-        if regionCheckComplete == 0:
-            for game in noj.list_switch_games():
-                if game.nsuid == nsuid:
-                    print(game.title)
-                    print(game.product_code, game.unique_id)
-                    print(game.release_date)
-                    print(game.players)
-                    print(str(game.rating[0]), game.rating[1])
-                    print(game.eshop.jp_jp)
-
-                    if saveOptions == 0:
-                        user_input = input("Do you want to save this information (Y/N): ")
-
-                        if user_input == "Y":
-                            saveInfo.append(str(game.title))
-                            gameProductInfo = str(game.product_code) + str(game.unique_id)
-                            saveInfo.append(gameProductInfo)
-                            saveInfo.append(str(game.release_date))
-                            saveInfo.append(str(game.players))
-                            gameRating = str(game.rating[0]), str(game.rating[1])
-                            saveInfo.append(str(gameRating))
-                            saveInfo.append(str(game.eshop.jp_jp))
-                            commands.save.saveGameDetailsOntoFile(saveInfo)
-                    if saveOptions == 1:
-                        print("Auto saving")
-                        saveInfo.append(str(game.title))
-                        gameProductInfo = str(game.product_code) + str(game.unique_id)
-                        saveInfo.append(gameProductInfo)
-                        saveInfo.append(str(game.release_date))
-                        saveInfo.append(str(game.players))
-                        gameRating = str(game.rating[0]), str(game.rating[1])
-                        saveInfo.append(str(gameRating))
-                        saveInfo.append(str(game.eshop.jp_jp))
-                        commands.save.saveGameDetailsOntoFile(saveInfo)
-                    if saveOptions == 2:
-                        pass
-                    break
-
-    except:
-        regionCheck = regionCheck + 1
-
-    if regionCheck == 3:
-        print("The ID you entered was not found on any region")
-
-
 def nsuidItem():
     if commands.settings.search:
         user_search = input("eShopTracker (Enter NSUID) > ")
-        nsuidSearch(user_search, commands.settings.saveAuto)
+        commands.info.nsuidSearch(user_search, commands.settings.saveAuto)
     else:
         print("This command is not enabled in settings")
 

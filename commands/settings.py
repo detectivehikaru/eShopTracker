@@ -7,6 +7,7 @@ printallregions = True
 region = True
 save = True
 search = True
+info = True
 version = True
 welcome = True
 debug = False
@@ -24,6 +25,7 @@ if debug:
     region = True
     save = True
     search = True
+    info = True
     version = True
     welcome = True
 
@@ -84,6 +86,13 @@ def printSearch():
         print("search: Disabled")
 
 
+def printInfo():
+    if info:
+        print("info: Enabled")
+    else:
+        print("info: Disabled")
+
+
 def printVersion():
     if version:
         print("version: Enabled")
@@ -114,6 +123,7 @@ def printSettings():
     printRegion()
     printSave()
     printSearch()
+    printInfo()
     printVersion()
     printWelcome()
     printDebug()

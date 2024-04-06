@@ -1,5 +1,7 @@
 from commands import (printallregions, listallregions, welcome, region, listcommands, search, notifications, version,
                       online, settings)
+import os
+os.system("")
 
 if online.internetStatus():
     connection = True

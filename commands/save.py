@@ -5,7 +5,8 @@ import commands.settings
 def saveGameDetailsOntoFile(gameDetails):
     if commands.settings.save:
         saveTime = date.today()
-        saveFileName = str(saveTime) + "-" + str(gameDetails[0]) + ".txt"
+        saveFileName = str(gameDetails[0]) + ".txt"
+        saveFileName = saveFileName.replace(":", "")
         print("Saved as: " + saveFileName)
         with open(saveFileName, 'a', encoding="utf-8") as f:
             gameTitle = gameDetails[0]
@@ -17,7 +18,8 @@ def saveGameDetailsOntoFile(gameDetails):
             f.write(productCode + "\n")
             f.write(gameReleaseDate + "\n")
             f.write(gamePlayers + "\n")
-            f.write(gameLink)
+            f.write(gameLink + "\n")
+            f.write("Saved on this date: " + str(saveTime))
             f.close()
     else:
         print("This command is not enabled in settings")
